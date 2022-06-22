@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dicee</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Refresh Me</h1>
+
+    <div class="dice">
+    
+      <p>Player 1</p>
+      <img class="img1" src="images/dice1.png">
+    </div>
+
+    <div class="dice">
+      <p>Player 2</p>
+      <img class="img2" src="images/dice1.png">
+    </div>
+    <div>
+      <button onclick=reload() type=" button">refresh</button>
+    </div>
+
+
+  </div>
+
+  <script>
+
+    function reload() {
+      var radForFirstperson = Math.floor(Math.random() * 6 + 1);
+      console.log(radForFirstperson);
+      var setPlayer1Src = `images/dice${radForFirstperson}.png`
+      document.querySelectorAll("img")[0].setAttribute("src", setPlayer1Src);
+
+
+      var radForSecondperson = Math.floor(Math.random() * 6 + 1);
+      console.log(radForSecondperson);
+      var setPlayer2Src = `images/dice${radForSecondperson}.png`
+      document.querySelectorAll("img")[1].setAttribute("src", setPlayer2Src);
+
+      if (radForFirstperson > radForSecondperson) {
+        document.querySelectorAll("h1")[0].innerHTML = "Yahhhoooo, player 1 Won"
+
+      } else if (radForFirstperson === radForSecondperson) {
+        document.querySelectorAll("h1")[0].innerHTML = "owwwww, its tied 👍"
+
+      }
+      else {
+        document.querySelectorAll("h1")[0].innerHTML = "Yahhhoooo, player 2 Won"
+
+      }
+
+    };
+
+  </script>
+
+
+</body>
+
+<footer>
+  Copiright@amitshinde2022
+</footer>
+
+</html>
